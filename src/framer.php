@@ -11,7 +11,7 @@ class Framer {
 	public function __construct(string $inputPath, string $outputPath, string $outputName?): void {
 		$this->inputPath = $inputPath;
 		$this->outputPath = $outputPath;
-		$this->outputName = $outputName;
+		$this->outputName = $outputName ?? 'frames';
 
 		if(!$this->inputPath || !$this->outputPath) {
 			exit("An input and output path is required.");
@@ -23,15 +23,15 @@ class Framer {
 		$video = new \FFMpeg\FFMpeg();
 		$video->open($this->inputPath);
 
-		$frameCount = 0;
-		foreach ($video->getFrames() as $frame) {
-			$path = $this->outputPath;
-			$name = $this->outputName ?? 'frame';
-		    $frame->save("$name_$frameCount.jpg");
-		    $frameCount++;
-		}
+		$video
+		    ->filters()
+		    ->extractMultipleFrames(FFMpeg\Filters\Video\ExtractMultipleFramesFilter::FRAMERATE_EVERY_10SEC, $this->outputPath)
+		    ->synchronize();
 
-		return "Extracted $frameCount frames from the video successfully.";
+		$video
+		    ->save(new FFMpeg\Format\Video\X264(), $this->outputPath . '/' . $this->inputName);
+
+		return "Frames extracted the video successfully.";
 	}
 }
 
