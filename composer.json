@@ -1,0 +1,20 @@
+{
+    "name": "devpreshy/video-frames-extractor",
+    "description": "simple PHP program that extracts frames from a video and saves them as images:",
+    "type": "library",
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "^1.1"
+    },
+    "license": "GNU",
+    "autoload": {
+        "psr-4": {
+            "devpreshy\\Framer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Preshy",
+            "email": "precious@dongmi.shop"
+        }
+    ]
+}
