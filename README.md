@@ -17,7 +17,7 @@
 $ composer install
 ```
 ### Usage
-The tool takes three arguments: the input video file, the output video file, and the watermark image file. To run the tool, open the terminal, navigate to the root directory of the repository, and run the following command:
+The tool takes two arguments: the input video file, the output directory. To run the tool, open the terminal, navigate to the root directory of the repository, and run the following command:
 
 #### Execute code
 ```
