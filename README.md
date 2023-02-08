@@ -1,5 +1,5 @@
 # Video Frames Extractor Script
-### A command-line tool to extract video frames to a photos (video previews).
+### A command-line tool to extract video frames to photos (video previews).
 
 ## Prerequisites
 * PHP 8 or later
